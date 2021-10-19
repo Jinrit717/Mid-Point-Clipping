@@ -1,7 +1,5 @@
 #include<stdio.h>
-#include<conio.h>
 #include<stdlib.h>
-#include<dos.h>
 #include<math.h>
 #include<graphics.h>
 
@@ -10,7 +8,7 @@ typedef struct coordinate
   char code[4];
 }PT;
 
-void frame()
+int frame()
 { outtextxy(150,12,"-: Mid - Point Line Clipping Algorithm :-");
   line(0,0,getmaxx(),0);
   line(0,0,0,getmaxy());
@@ -20,19 +18,19 @@ void frame()
   line(0,450,getmaxx(),450);
 }
 
-void pause()
+int pause()
 { outtextxy(10,460,"Press any key to Continue ...");
   getch();
 }
 
-void drawwindow()
+int drawwindow()
 { line(150,100,450,100);
   line(450,100,450,400);
   line(450,400,150,400);
   line(150,400,150,100);
 }
 
-void drawline (PT p1,PT p2,int cl)
+int drawline (PT p1,PT p2,int cl)
 { setcolor(cl);
   line(p1.x,p1.y,p2.x,p2.y);
 }
@@ -77,7 +75,7 @@ int visibility(PT p1,PT p2)
   return(2);
 }
 
-void midsub(PT p1,PT p2)
+int midsub(PT p1,PT p2)
 { PT mid;
   int v;
   p1=setcode(p1);
@@ -99,7 +97,7 @@ void midsub(PT p1,PT p2)
 
 PT resetendpt (PT p1,PT p2);
 
-void main()
+int main()
 { int gd=DETECT,gm,v;
   PT p1,p2,ptemp;
   initgraph(&gd,&gm,"C:\\TURBOC3\\BGI ");
